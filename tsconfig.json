@@ -9,7 +9,8 @@
     // See also https://aka.ms/tsconfig/module
     /*"module": "nodenext",
     "target": "esnext",*/
-    /* Elishree has changed it to ES6 */
+
+    /* Elishree has changed it to ES6 so Typescript codes can be converted to .js files*/
     "module": "ES6",   // or "commonjs"
     "target": "ES6",
 
@@ -24,7 +25,8 @@
     "declaration": true,
     "declarationMap": true,*/
 
-    /* Elishree has changed it to false */ 
+    /* Elishree has changed below 3 json nodes to false else it will create ".d", ".d.ts.map", ".js.map" 
+    extenssion files with actual ts to .js file */ 
     "sourceMap": false,
     "declaration": false,
     "declarationMap": false,
