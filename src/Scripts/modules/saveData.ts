@@ -1,74 +1,59 @@
+/*
+****************************************************************************************************************************
+* Filename    : saveData
+* Description : This file holds all functions to create and save data in browser localstorage
+* Functions   : "saveData"
+* Imported Functions: "clearEntryFields", "checkNotIsEmpty", "validateEmail", "validateFlexiblePhone", "createTableFromData"
+* Author      : Elishree Dey Chand
+* Created     : 2026-05-24
+****************************************************************************************************************************
+*/
+
+//First import the required functions
 import { clearEntryFields } from './clearEntries.js';
 import { checkNotIsEmpty, validateEmail, validateFlexiblePhone } from './validation.js';
 import { createTableFromData } from './createTable.js';
 
-
-
-  
+//Now create the process to Save Data  
 export function saveData(){
   let name: string = "";
-let email: string = "";
-let phone: string = "";
-let gender: string = "";
+  let email: string = "";
+  let phone: string = "";
+  let gender: string = "";
 
-let errValidateName: boolean ;
-    const nameEntry = document.getElementById("userName") as HTMLInputElement | null;
-    const emailEntry = document.getElementById("email") as HTMLInputElement | null;
-    const phoneEntry = document.getElementById("phone") as HTMLInputElement | null;
-    const genderEntry = document.getElementById("gender") as HTMLInputElement | null;
+  let errValidateName: boolean ;
+  const nameEntry = document.getElementById("userName") as HTMLInputElement | null;
+  const emailEntry = document.getElementById("email") as HTMLInputElement | null;
+  const phoneEntry = document.getElementById("phone") as HTMLInputElement | null;
+  const genderEntry = document.getElementById("gender") as HTMLInputElement | null;
 
-    const mandatoryName = document.getElementById("mandatoryName") as HTMLElement | null;
-    const mandatoryEmail = document.getElementById("mandatoryEmail") as HTMLElement | null;
-    const mandatoryPhone = document.getElementById("mandatoryPhone") as HTMLElement | null;
-
+  const mandatoryName = document.getElementById("mandatoryName") as HTMLElement | null;
+  const mandatoryEmail = document.getElementById("mandatoryEmail") as HTMLElement | null;
+  const mandatoryPhone = document.getElementById("mandatoryPhone") as HTMLElement | null;
     
-    if (nameEntry) {
-      name = nameEntry.value;
-    }
+  if (nameEntry) name = nameEntry.value;  
+  if (emailEntry) email = emailEntry.value;
+  if (phoneEntry) phone = phoneEntry.value;
+  if (genderEntry) gender = genderEntry.value; //alert(gender);    
 
-    if (emailEntry) {
-      email = emailEntry.value;
-    }
-
-    if (phoneEntry) {
-      phone = phoneEntry.value;
-    }
-
-    if (genderEntry) {
-      gender = genderEntry.value; //alert(gender);
-    }
-
-    var err: string | undefined;  
+  var err: string | undefined;  
   
-
   if(name == "" && email == "" && phone == "" ){
-    if (mandatoryName) {
-      mandatoryName.style.display = 'inline';
-    }
-    if (mandatoryEmail) {
-      mandatoryEmail.style.display = 'inline';
-    }
-    if (mandatoryPhone) {
-      mandatoryPhone.style.display = 'inline';
-    }
+    if (mandatoryName) mandatoryName.style.display = 'inline';    
+    if (mandatoryEmail) mandatoryEmail.style.display = 'inline';    
+    if (mandatoryPhone) mandatoryPhone.style.display = 'inline';    
     err = "Please fill details in all required fields";
   }
   else if (name == "" || name.trim() === "") {
-    if (mandatoryName) {
-      mandatoryName.style.display = 'inline';
-    }
+    if (mandatoryName) mandatoryName.style.display = 'inline';
     err = "Name is required!";
   }
   else if (email == "") {
-    if (mandatoryEmail) {
-      mandatoryEmail.style.display = 'inline';
-    }
+    if (mandatoryEmail) mandatoryEmail.style.display = 'inline';    
     err = "Email is required!";
   }
   else if (phone == "") {
-    if (mandatoryPhone) {
-      mandatoryPhone.style.display = 'inline';
-    }
+    if (mandatoryPhone) mandatoryPhone.style.display = 'inline';    
     err = "PhoneNo is required!";
   }    
     
@@ -76,9 +61,7 @@ let errValidateName: boolean ;
   {
     const errValidateName = checkNotIsEmpty(name);
     if(errValidateName){
-      if (mandatoryName) {
-        mandatoryName.style.display = '';
-      }
+      if (mandatoryName) mandatoryName.style.display = '';      
       return;// Stop form submission
     }     
   }  
@@ -87,21 +70,16 @@ let errValidateName: boolean ;
   { 
     const errValidateEmail = validateEmail(email);
     if(errValidateEmail){
-      if (mandatoryEmail) {
-        mandatoryEmail.style.display = '';
-      }
+      if (mandatoryEmail) mandatoryEmail.style.display = '';      
       return; //stop from submission
-    } 
-          
+    }           
   }  
 
   if(phone != "" )
   {   
     var errValidatePhone = validateFlexiblePhone(phone); 
     if(errValidatePhone != "" && errValidatePhone == "error in phone number"){ //alert("here" + errValidatePhone);
-      if (mandatoryPhone) {
-      mandatoryPhone.style.display = '';
-    }
+      if (mandatoryPhone) mandatoryPhone.style.display = '';    
       return;// Stop form submission
     }       
   }
@@ -149,6 +127,4 @@ let errValidateName: boolean ;
   const allEnteredvalues = JSON.parse(localStorage.getItem("setLocalStorageJSON")) || []; // Parse string to array
   */
   // End of code for storing data in local storage JSON array
-
-
 }

@@ -1,3 +1,13 @@
+/*
+****************************************************************************************************************************
+* Filename    : clearEntries
+* Description : This file holds function to clear all entry fields after entry.
+* Functions   : "clearEntryFields"
+* Author      : Elishree Dey Chand
+* Created     : 2026-05-24
+****************************************************************************************************************************
+*/
+//This function will clear all entry fields after entry.
 export function clearEntryFields() {
     const userNameEntry = document.getElementById("userName");
     const emailEntry = document.getElementById("email");
@@ -6,18 +16,14 @@ export function clearEntryFields() {
     const mandatoryName = document.getElementById("mandatoryName");
     const mandatoryEmail = document.getElementById("mandatoryEmail");
     const mandatoryPhone = document.getElementById("mandatoryPhone");
-    if (userNameEntry) {
+    if (userNameEntry)
         userNameEntry.value = "";
-    }
-    if (emailEntry) {
+    if (emailEntry)
         emailEntry.value = "";
-    }
-    if (phoneEntry) {
+    if (phoneEntry)
         phoneEntry.value = "";
-    }
-    if (genderEntry) {
+    if (genderEntry)
         genderEntry.value = "";
-    }
     if (mandatoryName) {
         mandatoryName.style.display = "";
         mandatoryName.innerHTML = "*";

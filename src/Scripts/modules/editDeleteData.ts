@@ -1,6 +1,19 @@
+/*
+****************************************************************************************************************************
+* Filename    : editDeleteData
+* Description : This file holds all functions to edit or delete a registered data in browser localstorage
+* Functions   : "deleteRow", "editRow", "saveEditedData"
+* Imported Functions: "clearEntryFields"
+* Author      : Elishree Dey Chand
+* Created     : 2026-05-24
+****************************************************************************************************************************
+*/
+
+//First import the required functions
 import { clearEntryFields } from './clearEntries.js';
 
-type EntryData = {
+//specify the entry data types
+type entryData = {
   name: string;
   email: string;
   phone: string;
@@ -16,14 +29,11 @@ export function deleteRow(r: HTMLElement) {
     const index: number = row.rowIndex;
 
     const table = document.getElementById("viewData") as HTMLTableElement | null;
-    if (table) {
-      table.deleteRow(index);
-    }  
-
+    if (table) table.deleteRow(index);
 
     //It will remove the data from localstorage JSON array as well. So on page it will not visible as data is deleted from table.  
     const raw = localStorage.getItem("setLocalStorageJSON");
-    const data: EntryData[] = raw ? JSON.parse(raw) : [];
+    const data: entryData[] = raw ? JSON.parse(raw) : [];
     const arrayIndex = index - 1;
 
     if (arrayIndex > -1 && arrayIndex < data.length) {
@@ -38,6 +48,7 @@ export function deleteRow(r: HTMLElement) {
   }
 }
 
+//This function is called when user has clicked edit button in a table row.
 export function editRow(r: HTMLElement) {//alert("edit");
   const row = r.parentElement?.parentElement as HTMLTableRowElement | null;
   if (!row) return;
@@ -46,14 +57,11 @@ export function editRow(r: HTMLElement) {//alert("edit");
   const rowId: string = row.id;//alert(rowId);
 
   const editTableRowNo = document.getElementById("editTableRowNo") as HTMLElement | null;
-  if (editTableRowNo) {
-    editTableRowNo.innerHTML = rowId;
-  }
+  if (editTableRowNo) editTableRowNo.innerHTML = rowId;
   //alert(i);
 
   const table = document.getElementById("viewData") as HTMLTableElement | null;
-  if (!table) return; 
-  
+  if (!table) return;   
 
   const nameForEdit: string = table.rows[i]?.cells[0]?.innerHTML?? "";
   const emailForEdit: string = table.rows[i]?.cells[1]?.innerHTML?? "";
@@ -76,6 +84,7 @@ export function editRow(r: HTMLElement) {//alert("edit");
   //document.getElementById("btnEditData").style.display= 'block';
 }
 
+//This function is called when user has clicked Save Changes to save, modified info and store it back and save in same table row.
 export function saveEditedData(){//alert("save edit");
   const editTableRowNo = document.getElementById("editTableRowNo") as HTMLElement | null;
   if (!editTableRowNo) return;
@@ -102,18 +111,13 @@ export function saveEditedData(){//alert("save edit");
   //document.getElementById("cellOne_" + i).innerHTML= document.getElementById("userName").value;
   //document.getElementById("cellTwo_" + i).innerHTML= document.getElementById("email").value;
   //document.getElementById("cellThree_" + i).innerHTML= document.getElementById("phone").value;
-  //document.getElementById("cellFour_" + i).innerHTML= document.getElementById("gender").value;
-   
+  //document.getElementById("cellFour_" + i).innerHTML= document.getElementById("gender").value;   
 
   const btnAdd = document.getElementById("btnAddData") as HTMLElement | null;
   const btnEdit = document.getElementById("btnEditData") as HTMLElement | null;
 
-  if (btnAdd) {
-    btnAdd.style.display = 'block';
-  }  
-  if (btnEdit) {
-    btnEdit.style.display = 'none';
-  }   
+  if (btnAdd) btnAdd.style.display = 'block';    
+  if (btnEdit) btnEdit.style.display = 'none';  
 
   //const key = "setLocalStorageJSON";
   const index = i-1; // position to update
@@ -121,11 +125,11 @@ export function saveEditedData(){//alert("save edit");
 
   // 1. Get and parse
   const raw = localStorage.getItem("setLocalStorageJSON");
-  const data: EntryData[] = raw ? JSON.parse(raw) : [];
+  const data: entryData[] = raw ? JSON.parse(raw) : [];
 
 
   // 2. New updated object
-  const updatedNode: EntryData = {
+  const updatedNode: entryData = {
     name: userName.value,
     email: email.value,
     phone: phone.value,
@@ -137,7 +141,6 @@ export function saveEditedData(){//alert("save edit");
     data.splice(index, 1, updatedNode); // remove 1, insert updatedNode
   }
   localStorage.setItem("setLocalStorageJSON", JSON.stringify(data));
-
 
   // clear entry fields after submission
   clearEntryFields();

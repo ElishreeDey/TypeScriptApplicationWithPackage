@@ -1,3 +1,14 @@
+/*
+****************************************************************************************************************************
+* Filename    : editDeleteData
+* Description : This file holds all functions to edit or delete a registered data in browser localstorage
+* Functions   : "deleteRow", "editRow", "saveEditedData"
+* Imported Functions: "clearEntryFields"
+* Author      : Elishree Dey Chand
+* Created     : 2026-05-24
+****************************************************************************************************************************
+*/
+//First import the required functions
 import { clearEntryFields } from './clearEntries.js';
 //This function will delete the corresponding row of the table when user clicks on delete(X) button.
 export function deleteRow(r) {
@@ -8,9 +19,8 @@ export function deleteRow(r) {
             return;
         const index = row.rowIndex;
         const table = document.getElementById("viewData");
-        if (table) {
+        if (table)
             table.deleteRow(index);
-        }
         //It will remove the data from localstorage JSON array as well. So on page it will not visible as data is deleted from table.  
         const raw = localStorage.getItem("setLocalStorageJSON");
         const data = raw ? JSON.parse(raw) : [];
@@ -25,6 +35,7 @@ export function deleteRow(r) {
         alert("Deletion action is cancelled.");
     }
 }
+//This function is called when user has clicked edit button in a table row.
 export function editRow(r) {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
     const row = (_a = r.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement;
@@ -33,9 +44,8 @@ export function editRow(r) {
     const i = row.rowIndex;
     const rowId = row.id; //alert(rowId);
     const editTableRowNo = document.getElementById("editTableRowNo");
-    if (editTableRowNo) {
+    if (editTableRowNo)
         editTableRowNo.innerHTML = rowId;
-    }
     //alert(i);
     const table = document.getElementById("viewData");
     if (!table)
@@ -58,6 +68,7 @@ export function editRow(r) {
     //document.getElementById("btnAddData").style.display= 'none';
     //document.getElementById("btnEditData").style.display= 'block';
 }
+//This function is called when user has clicked Save Changes to save, modified info and store it back and save in same table row.
 export function saveEditedData() {
     const editTableRowNo = document.getElementById("editTableRowNo");
     if (!editTableRowNo)
@@ -84,15 +95,13 @@ export function saveEditedData() {
     //document.getElementById("cellOne_" + i).innerHTML= document.getElementById("userName").value;
     //document.getElementById("cellTwo_" + i).innerHTML= document.getElementById("email").value;
     //document.getElementById("cellThree_" + i).innerHTML= document.getElementById("phone").value;
-    //document.getElementById("cellFour_" + i).innerHTML= document.getElementById("gender").value;
+    //document.getElementById("cellFour_" + i).innerHTML= document.getElementById("gender").value;   
     const btnAdd = document.getElementById("btnAddData");
     const btnEdit = document.getElementById("btnEditData");
-    if (btnAdd) {
+    if (btnAdd)
         btnAdd.style.display = 'block';
-    }
-    if (btnEdit) {
+    if (btnEdit)
         btnEdit.style.display = 'none';
-    }
     //const key = "setLocalStorageJSON";
     const index = i - 1; // position to update
     //alert(index);

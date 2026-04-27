@@ -1,3 +1,13 @@
+/*
+****************************************************************************************************************************
+* Filename    : createtable
+* Description : This file holds all functions to create and save data in browser localstorage
+* Functions   : "createTableFromData"
+* Author      : Elishree Dey Chand
+* Created     : 2026-05-24
+****************************************************************************************************************************
+*/
+//This function will create a tablular format to display already entered data from browser's localstorage.
 export function createTableFromData(name, email, phone, gender) {
     //alert("create table from data");
     //save to local storage

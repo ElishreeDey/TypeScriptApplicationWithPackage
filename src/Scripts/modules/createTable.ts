@@ -1,4 +1,16 @@
+/*
+****************************************************************************************************************************
+* Filename    : createtable
+* Description : This file holds all functions to create and save data in browser localstorage
+* Functions   : "createTableFromData"
+* Author      : Elishree Dey Chand
+* Created     : 2026-05-24
+****************************************************************************************************************************
+*/
+
+//This function will create a tablular format to display already entered data from browser's localstorage.
 export function createTableFromData(name: string, email:string, phone:string,gender:string){
+  
   //alert("create table from data");
   //save to local storage
   localStorage.setItem("userName", name);
@@ -7,7 +19,6 @@ export function createTableFromData(name: string, email:string, phone:string,gen
   localStorage.setItem("gender", gender);  
 
   const table = document.getElementById("viewData") as HTMLTableElement | null;
-
   
   // Insert a new row at the end (-1 adds to the last position)
   //let newRow = table.insertRow(-1);
@@ -37,5 +48,4 @@ export function createTableFromData(name: string, email:string, phone:string,gen
   // Setting colors to edit and delete(X) buttons
   cellFive.style.color = "blue";
   cellSix.style.color = "red";
-
 }

@@ -1,14 +1,23 @@
+<!--
+******************************************************************
+* Filename    : index.html
+* Description : Primary landing page for the registration dashboard.
+* Author      : Elishree Dey Chand
+* Created     : 2026-05-24
+******************************************************************
+-->
+
 <!DOCTYPE html>
 <html lang="en">
-    <title>Assignment One</title>
     <head>
+        <title>Assignment TS</title>
         <script type="module" src="../dist/Scripts/index.js"></script>
-        <!--<script type="text/javascript" src="/script/index.js"></script>-->
         <link rel="stylesheet" href="./Styles/detailPages.css">
     </head>
     <body> 
         <table class="NoBorder">
             <tr>
+                <!-- Start: To enter data for registration -->
                 <td class="NoBorder">
                     <h1>Registration</h1><br>
                     <div id="registrationForm">
@@ -29,10 +38,12 @@
                         <button id="btnEditData" onclick="saveEditedData()" class="invisible">Save Changes</button>
                     </div>
                 </td>
-                
-                <td id="viewDataTD" class="displayTRegisteredData">
+                <!-- End: To enter data for registration -->
+
+                <!-- Start: To view entered data -->
+                <td id="viewDataTD" class="displayRegisteredData">
                     <table id="viewData">                        
-                        <h1>View Registred Data </h1><br>
+                        <h1>View Registered Data </h1><br>
                         <tr>
                             <td class="storedDataColHeader">Name</td>
                             <td class="storedDataColHeader">Email</td>
@@ -43,6 +54,7 @@
                     </table>
                     <span id="editTableRowNo" class="invisible"></span>
                 </td>
+                <!-- End: To view entered data -->
             </tr>
         </table>
     </body>

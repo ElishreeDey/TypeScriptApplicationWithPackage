@@ -1,3 +1,12 @@
+/*
+***********************************************************************************************
+* Filename    : validation
+* Description : This file holds all functions for validating the input fields during entry
+* Functions   : "checkNotIsEmpty", "validateEmail", "validateFlexiblePhone"
+* Author      : Elishree Dey Chand
+* Created     : 2026-05-24
+***********************************************************************************************
+*/
 
 //This function will check if the name is empty or not. Can be used for other fields as well if needed to check NotIsEmpty.
 export function checkNotIsEmpty(name: string) {

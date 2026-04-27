@@ -1,6 +1,18 @@
+/*
+****************************************************************************************************************************
+* Filename    : saveData
+* Description : This file holds all functions to create and save data in browser localstorage
+* Functions   : "saveData"
+* Imported Functions: "clearEntryFields", "checkNotIsEmpty", "validateEmail", "validateFlexiblePhone", "createTableFromData"
+* Author      : Elishree Dey Chand
+* Created     : 2026-05-24
+****************************************************************************************************************************
+*/
+//First import the required functions
 import { clearEntryFields } from './clearEntries.js';
 import { checkNotIsEmpty, validateEmail, validateFlexiblePhone } from './validation.js';
 import { createTableFromData } from './createTable.js';
+//Now create the process to Save Data  
 export function saveData() {
     let name = "";
     let email = "";
@@ -14,73 +26,60 @@ export function saveData() {
     const mandatoryName = document.getElementById("mandatoryName");
     const mandatoryEmail = document.getElementById("mandatoryEmail");
     const mandatoryPhone = document.getElementById("mandatoryPhone");
-    if (nameEntry) {
+    if (nameEntry)
         name = nameEntry.value;
-    }
-    if (emailEntry) {
+    if (emailEntry)
         email = emailEntry.value;
-    }
-    if (phoneEntry) {
+    if (phoneEntry)
         phone = phoneEntry.value;
-    }
-    if (genderEntry) {
-        gender = genderEntry.value; //alert(gender);
-    }
+    if (genderEntry)
+        gender = genderEntry.value; //alert(gender);    
     var err;
     if (name == "" && email == "" && phone == "") {
-        if (mandatoryName) {
+        if (mandatoryName)
             mandatoryName.style.display = 'inline';
-        }
-        if (mandatoryEmail) {
+        if (mandatoryEmail)
             mandatoryEmail.style.display = 'inline';
-        }
-        if (mandatoryPhone) {
+        if (mandatoryPhone)
             mandatoryPhone.style.display = 'inline';
-        }
         err = "Please fill details in all required fields";
     }
     else if (name == "" || name.trim() === "") {
-        if (mandatoryName) {
+        if (mandatoryName)
             mandatoryName.style.display = 'inline';
-        }
         err = "Name is required!";
     }
     else if (email == "") {
-        if (mandatoryEmail) {
+        if (mandatoryEmail)
             mandatoryEmail.style.display = 'inline';
-        }
         err = "Email is required!";
     }
     else if (phone == "") {
-        if (mandatoryPhone) {
+        if (mandatoryPhone)
             mandatoryPhone.style.display = 'inline';
-        }
         err = "PhoneNo is required!";
     }
     if (name != "") {
         const errValidateName = checkNotIsEmpty(name);
         if (errValidateName) {
-            if (mandatoryName) {
+            if (mandatoryName)
                 mandatoryName.style.display = '';
-            }
             return; // Stop form submission
         }
     }
     if (email != "") {
         const errValidateEmail = validateEmail(email);
         if (errValidateEmail) {
-            if (mandatoryEmail) {
+            if (mandatoryEmail)
                 mandatoryEmail.style.display = '';
-            }
             return; //stop from submission
         }
     }
     if (phone != "") {
         var errValidatePhone = validateFlexiblePhone(phone);
         if (errValidatePhone != "" && errValidatePhone == "error in phone number") { //alert("here" + errValidatePhone);
-            if (mandatoryPhone) {
+            if (mandatoryPhone)
                 mandatoryPhone.style.display = '';
-            }
             return; // Stop form submission
         }
     }
