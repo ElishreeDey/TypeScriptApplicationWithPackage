@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Assignment One</title>
+    <head>
+        <script type="module" src="../dist/Scripts/index.js"></script>
+        <!--<script type="text/javascript" src="/script/index.js"></script>-->
+        <link rel="stylesheet" href="./Styles/detailPages.css">
+    </head>
+    <body> 
+        <table class="NoBorder">
+            <tr>
+                <td class="NoBorder">
+                    <h1>Registration</h1><br>
+                    <div id="registrationForm">
+                        <label for="fname"><span>First name: </span><span id="mandatoryName" class="mandatory">*</span> </label><br>
+                        <input type="text" id="userName" required onchange="checkNotIsEmpty(this.value)"> <br>
+                        <label for="email"><span>Email: <span><span id="mandatoryEmail" class="mandatory">*</span></label><br>
+                        <input type="email" id="email" required onchange="validateEmail(this.value)"><br>
+                        <label for="phone"><span>Phone: </span><span id="mandatoryPhone" class="mandatory">*</span></label><br>
+                        <input type="text" id="phone" required onchange="validateFlexiblePhone(this.value)"><br>
+                        <label for="gender">Gender:</label><br>
+                        <select id="gender">  
+                            <option id="" value="">Select Gender</option>  
+                            <option id="maleOption" value="male">male</option>
+                            <option id="femaleOption" value="female">female</option>
+                        </select>
+                        <br>
+                        <button id="btnAddData" onclick="saveData()">Submit</button>
+                        <button id="btnEditData" onclick="saveEditedData()" class="invisible">Save Changes</button>
+                    </div>
+                </td>
+                
+                <td id="viewDataTD" class="displayTRegisteredData">
+                    <table id="viewData">                        
+                        <h1>View Registred Data </h1><br>
+                        <tr>
+                            <td class="storedDataColHeader">Name</td>
+                            <td class="storedDataColHeader">Email</td>
+                            <td class="storedDataColHeader">Phone</td>
+                            <td class="storedDataColHeader">Gender</td>
+                            <td class="storedDataColHeader" colspan="2">Action</td>
+                        </tr>
+                    </table>
+                    <span id="editTableRowNo" class="invisible"></span>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
