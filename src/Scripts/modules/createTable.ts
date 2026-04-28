@@ -7,16 +7,16 @@
 * Created     : 2026-05-24
 ****************************************************************************************************************************
 */
-
+import type { EntryDataBase } from "./type.ts";
 //This function will create a tablular format to display already entered data from browser's localstorage.
-export function createTableFromData(name: string, email:string, phone:string,gender:string){
+export function createTableFromData(data: EntryDataBase){
   
   //alert("create table from data");
   //save to local storage
-  localStorage.setItem("userName", name);
-  localStorage.setItem("email", email);
-  localStorage.setItem("phone", phone);
-  localStorage.setItem("gender", gender);  
+  localStorage.setItem("userName", data.username);
+  localStorage.setItem("email", data.email);
+  localStorage.setItem("phone", data.phone);
+  localStorage.setItem("gender", data.gender);  
 
   const table = document.getElementById("viewData") as HTMLTableElement | null;
   
@@ -38,10 +38,10 @@ export function createTableFromData(name: string, email:string, phone:string,gen
   const cellSix = newRow.insertCell(5); cellSix.id = "cellSix_" + setRowNumber; 
 
   // Add content to the new cells
-  cellOne.innerHTML = name;
-  cellTwo.innerHTML = email;
-  cellThree.innerHTML = phone;
-  cellFour.innerHTML = gender;
+  cellOne.innerHTML = data.username;
+  cellTwo.innerHTML = data.email;
+  cellThree.innerHTML = data.phone;
+  cellFour.innerHTML = data.gender;
   cellFive.innerHTML = "<span value='Edit' onclick='editRow(this)'>Edit</span>";
   cellSix.innerHTML = "<span value='X' onclick='deleteRow(this)'>X</span>";
 

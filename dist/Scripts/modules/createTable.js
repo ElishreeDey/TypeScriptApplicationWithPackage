@@ -1,20 +1,11 @@
-/*
-****************************************************************************************************************************
-* Filename    : createtable
-* Description : This file holds all functions to create and save data in browser localstorage
-* Functions   : "createTableFromData"
-* Author      : Elishree Dey Chand
-* Created     : 2026-05-24
-****************************************************************************************************************************
-*/
 //This function will create a tablular format to display already entered data from browser's localstorage.
-export function createTableFromData(name, email, phone, gender) {
+export function createTableFromData(data) {
     //alert("create table from data");
     //save to local storage
-    localStorage.setItem("userName", name);
-    localStorage.setItem("email", email);
-    localStorage.setItem("phone", phone);
-    localStorage.setItem("gender", gender);
+    localStorage.setItem("userName", data.username);
+    localStorage.setItem("email", data.email);
+    localStorage.setItem("phone", data.phone);
+    localStorage.setItem("gender", data.gender);
     const table = document.getElementById("viewData");
     // Insert a new row at the end (-1 adds to the last position)
     //let newRow = table.insertRow(-1);
@@ -38,10 +29,10 @@ export function createTableFromData(name, email, phone, gender) {
     const cellSix = newRow.insertCell(5);
     cellSix.id = "cellSix_" + setRowNumber;
     // Add content to the new cells
-    cellOne.innerHTML = name;
-    cellTwo.innerHTML = email;
-    cellThree.innerHTML = phone;
-    cellFour.innerHTML = gender;
+    cellOne.innerHTML = data.username;
+    cellTwo.innerHTML = data.email;
+    cellThree.innerHTML = data.phone;
+    cellFour.innerHTML = data.gender;
     cellFive.innerHTML = "<span value='Edit' onclick='editRow(this)'>Edit</span>";
     cellSix.innerHTML = "<span value='X' onclick='deleteRow(this)'>X</span>";
     // Setting colors to edit and delete(X) buttons

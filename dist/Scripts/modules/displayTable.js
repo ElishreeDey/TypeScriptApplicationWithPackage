@@ -29,6 +29,6 @@ export function displayData() {
         //alert(firstJSONNodeString); // to access individual values
         const obj = JSON.parse(firstJSONNodeString); // Convert string back to json object to access values in createTableFromData function
         //alert(obj);
-        createTableFromData(obj.name, obj.email, obj.phone, obj.gender);
+        createTableFromData(obj);
     }
 }
