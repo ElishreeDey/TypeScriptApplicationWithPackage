@@ -12,6 +12,13 @@
 //First import the required functions
 import { clearEntryFields } from './clearEntries.js';
 import { showSnackbar } from './showSnackbar.js';
+import type { MsgBgCol } from './type.ts';
+
+const mgColour: MsgBgCol = {
+    successMsgCol: "#008000",
+    alertMsgCol: "#FFBF00",
+    errMsgCol: "#FF0000"
+  };
 
 //specify the entry data types
 type entryData = {
@@ -46,7 +53,7 @@ export function deleteRow(r: HTMLElement) {
 
   } else {
     //alert("Deletion action is cancelled.");
-    showSnackbar("Deletion action is cancelled.");
+    showSnackbar("Deletion action is cancelled.", mgColour.alertMsgCol);
   }
 }
 

@@ -14,3 +14,10 @@ export interface EntryDataBase  {
   phone: string;
   gender: string;
 }
+
+
+export interface MsgBgCol  {
+  successMsgCol: string;
+  alertMsgCol: string;
+  errMsgCol: string;
+}

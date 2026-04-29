@@ -9,7 +9,8 @@ import { clearEntryFields } from './clearEntries.js';
 import { checkNotIsEmpty, validateEmail, validateFlexiblePhone } from './validation.js';
 import { createTableFromData } from './createTable.js';
 
-import type { EntryDataBase } from './type.ts';
+import type { EntryDataBase} from './type.ts';
+import type { MsgBgCol } from './type.ts';
 import { showSnackbar } from './showSnackbar.js';
 
 // Save Data Function
@@ -23,6 +24,11 @@ export function saveData() {
     gender: (document.getElementById("gender") as HTMLSelectElement).value,
   };
 
+  const mgColour: MsgBgCol = {
+    successMsgCol: "#008000",
+    alertMsgCol: "#FFBF00",
+    errMsgCol: "#FF0000"
+  };
   //console.log("User Data:", user);
 
   // Validation elements
@@ -79,13 +85,13 @@ export function saveData() {
   if (err) {
     //alert(err);
 
-    showSnackbar(err);
+    showSnackbar(err,mgColour.errMsgCol);
 
     return;
   } else {
     //alert("Data saved successfully!");
-    
-    showSnackbar("Data saved successfully!");
+
+    showSnackbar("Data saved successfully!",mgColour.successMsgCol);
 
   }
 

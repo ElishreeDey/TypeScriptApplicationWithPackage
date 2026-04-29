@@ -11,6 +11,11 @@
 //First import the required functions
 import { clearEntryFields } from './clearEntries.js';
 import { showSnackbar } from './showSnackbar.js';
+const mgColour = {
+    successMsgCol: "#008000",
+    alertMsgCol: "#FFBF00",
+    errMsgCol: "#FF0000"
+};
 //This function will delete the corresponding row of the table when user clicks on delete(X) button.
 export function deleteRow(r) {
     var _a;
@@ -34,7 +39,7 @@ export function deleteRow(r) {
     }
     else {
         //alert("Deletion action is cancelled.");
-        showSnackbar("Deletion action is cancelled.");
+        showSnackbar("Deletion action is cancelled.", mgColour.alertMsgCol);
     }
 }
 //This function is called when user has clicked edit button in a table row.

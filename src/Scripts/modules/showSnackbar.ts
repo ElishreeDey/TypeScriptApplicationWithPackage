@@ -8,7 +8,7 @@
 ****************************************************************************************************************************
 */
 
-export function showSnackbar(message: string): void {
+export function showSnackbar(message: string, color: string): void {
   const snackbar = document.getElementById("snackbar") as HTMLElement | null;
 
   if (!snackbar) return;
@@ -17,9 +17,9 @@ export function showSnackbar(message: string): void {
   snackbar.textContent = message;
 
   snackbar.className = "show";
-  //snackbar.style.backgroundColor = bgColor; //alert(bgColor);
+  snackbar.style.backgroundColor = color; //alert(bgColor);
 
-  //snackbar.style.backgroundColor = "#43973c";
+  //snackbar.style.backgroundColor = "#503c97";
 
   setTimeout((): void => {
     snackbar.className = snackbar.className.replace("show", "");

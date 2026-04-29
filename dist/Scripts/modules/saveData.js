@@ -17,6 +17,11 @@ export function saveData() {
         phone: document.getElementById("phone").value,
         gender: document.getElementById("gender").value,
     };
+    const mgColour = {
+        successMsgCol: "#008000",
+        alertMsgCol: "#FFBF00",
+        errMsgCol: "#FF0000"
+    };
     //console.log("User Data:", user);
     // Validation elements
     const mandatoryName = document.getElementById("mandatoryName");
@@ -65,12 +70,12 @@ export function saveData() {
     // Show error if exists
     if (err) {
         //alert(err);
-        showSnackbar(err);
+        showSnackbar(err, mgColour.errMsgCol);
         return;
     }
     else {
         //alert("Data saved successfully!");
-        showSnackbar("Data saved successfully!");
+        showSnackbar("Data saved successfully!", mgColour.successMsgCol);
     }
     // Add to table
     createTableFromData(user);
