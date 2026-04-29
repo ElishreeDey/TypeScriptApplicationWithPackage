@@ -21,6 +21,8 @@ label {
   padding: 8px;
   font: Arial;
   font-size: 12px;
+  margin-bottom: 6px; /* space between label and input */
+
 }
 
 /* Style the entry input fields */
@@ -76,6 +78,9 @@ body {
   font-family: Arial;
   background: #f2f2f2;      
   padding: 40px;
+  display: flex;
+  justify-content: center;  /* horizontal center */
+  align-items: center;      /* vertical center */
 }
 
 /* Style table */
@@ -140,22 +145,20 @@ th {
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-@-webkit-keyframes fadein {
-  from {top: 0; opacity: 0;} 
-  to {top: 50px; opacity: 1;}
-}
-
 @keyframes fadein {
   from {top: 0; opacity: 0;}
   to {top: 50px; opacity: 1;}
 }
 
-@-webkit-keyframes fadeout {
-  from {top: 50px; opacity: 1;} 
-  to {top: 0; opacity: 0;}
-}
-
 @keyframes fadeout {
   from {top: 50px; opacity: 1;}
   to {top: 0; opacity: 0;}
+}
+
+.pageContainer {
+    display: flex;
+    justify-content: space-between; /* puts them side by side */
+    align-items: flex-start;
+    gap: 40px; /* space between form and table */
+    padding: 30px;
 }

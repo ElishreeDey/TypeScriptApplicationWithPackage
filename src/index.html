@@ -9,55 +9,68 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Assignment TS</title>
-        <script type="module" src="../dist/Scripts/index.js"></script>
-        <link rel="stylesheet" href="./Styles/detailPages.css">
-    </head>
-    <body> 
-        <table class="NoBorder">
+<head>
+    <title>Assignment TS</title>
+    <script type="module" src="../dist/Scripts/index.js"></script>
+    <link rel="stylesheet" href="./Styles/detailPages.css">
+</head>
+
+<body>
+<div class="pageContainer">
+<!-- FORM Entry -->
+<div class="form-container">
+    <h1>Registration</h1>
+    <form id="registrationForm">
+        <label for="userName">
+            First name:
+            <span id="mandatoryName" class="mandatory">*</span>
+        </label><br>
+        <input type="text" id="userName" required onchange="checkNotIsEmpty(this.value)"><br>
+        <label for="email">
+            Email:
+            <span id="mandatoryEmail" class="mandatory">*</span>
+        </label><br>
+        <input type="email" id="email" required onchange="validateEmail(this.value)"><br>
+        <label for="phone">
+            Phone:
+            <span id="mandatoryPhone" class="mandatory">*</span>
+        </label><br>
+        <input type="text" id="phone" required onchange="validateFlexiblePhone(this.value)"><br>
+        <label for="gender">Gender:</label><br>
+        <select id="gender">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br><br>
+        <button id="btnAddData" type="button" onclick="saveData()">Submit</button>
+        <button id="btnEditData" type="button" onclick="saveEditedData()" class="invisible">
+            Save Changes
+        </button>
+    </form>
+</div>
+
+<!-- TABLE To display Registed data -->
+<div class="tableContainer">
+    <h1>View Registered Data</h1><br>
+    <table id="viewData" class="displayRegisteredData">
+        <thead>
             <tr>
-                <!-- Start: To enter data for registration -->
-                <td class="NoBorder">
-                    <h1>Registration</h1><br>
-                    <div id="registrationForm">
-                        <label for="fname"><span>First name: </span><span id="mandatoryName" class="mandatory">*</span> </label><br>
-                        <input type="text" id="userName" required onchange="checkNotIsEmpty(this.value)"> <br>
-                        <label for="email"><span>Email: <span><span id="mandatoryEmail" class="mandatory">*</span></label><br>
-                        <input type="email" id="email" required onchange="validateEmail(this.value)"><br>
-                        <label for="phone"><span>Phone: </span><span id="mandatoryPhone" class="mandatory">*</span></label><br>
-                        <input type="text" id="phone" required onchange="validateFlexiblePhone(this.value)"><br>
-                        <label for="gender">Gender:</label><br>
-                        <select id="gender">  
-                            <option id="" value="">Select Gender</option>  
-                            <option id="maleOption" value="male">male</option>
-                            <option id="femaleOption" value="female">female</option>
-                        </select>
-                        <br>
-                        <button id="btnAddData" onclick="saveData()">Submit</button>
-                        <button id="btnEditData" onclick="saveEditedData()" class="invisible">Save Changes</button>
-                    </div>
-                </td>
-                <!-- End: To enter data for registration -->
-
-                <!-- Start: To view entered data -->
-                <td id="viewDataTD" class="displayRegisteredData">
-                    <table id="viewData">                        
-                        <h1>View Registered Data </h1><br>
-                        <tr>
-                            <td class="storedDataColHeader">Name</td>
-                            <td class="storedDataColHeader">Email</td>
-                            <td class="storedDataColHeader">Phone</td>
-                            <td class="storedDataColHeader">Gender</td>
-                            <td class="storedDataColHeader" colspan="2">Action</td>
-                        </tr>
-                    </table>
-                    <span id="editTableRowNo" class="invisible"></span>
-                </td>
-                <!-- End: To view entered data -->
-
-                <div id="snackbar">Some text some message..</div>
+                <th class="storedDataColHeader">Name</th>
+                <th class="storedDataColHeader">Email</th>
+                <th class="storedDataColHeader">Phone</th>
+                <th class="storedDataColHeader">Gender</th>
+                <th class="storedDataColHeader" colspan="2">Action</th>
             </tr>
-        </table>
-    </body>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+    <span id="editTableRowNo" class="invisible"></span>
+</div>
+
+<!-- SNACKBAR - To display Some text some message -->
+<div id="snackbar"></div>
+</div>
+</body>
+
 </html>
