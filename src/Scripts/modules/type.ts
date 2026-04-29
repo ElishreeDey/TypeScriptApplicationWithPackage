@@ -1,21 +1,16 @@
 /*
 ****************************************************************************************************************************
-* Filename    : editDeleteData
-* Description : This file holds all functions to edit or delete a registered data in browser localstorage
-* Functions   : "deleteRow", "editRow", "saveEditedData"
-* Imported Functions: "clearEntryFields"
+* Filename    : Type
+* Description : This file holds all entry variable type 
 * Author      : Elishree Dey Chand
-* Created     : 2026-05-24
+* Created     : 2026-05-29
 ****************************************************************************************************************************
 */
-//export {};  //export this module else globals will not work.
-
 //specify the entry data types
-//declare global {
+//Interface name shouls start with capital 
 export interface EntryDataBase  {
   username: string;
   email: string;
   phone: string;
   gender: string;
 }
-//}
