@@ -13,7 +13,7 @@ export function checkNotIsEmpty(name) {
     if (name.trim() === "" || name == null) { //alert(name);
         if (mandatoryName) {
             mandatoryName.style.display = "";
-            mandatoryName.innerHTML = "";
+            mandatoryName.innerHTML = "*";
             return false;
         }
     }

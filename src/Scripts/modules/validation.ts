@@ -14,7 +14,7 @@ export function checkNotIsEmpty(name: string) {
   if (name.trim() === "" || name == null) { //alert(name);
     if (mandatoryName) {          
       mandatoryName.style.display  = "";
-      mandatoryName.innerHTML = "";
+      mandatoryName.innerHTML = "*";
       return false;
     }
   }
