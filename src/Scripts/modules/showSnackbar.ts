@@ -1,11 +1,10 @@
 /*
 ****************************************************************************************************************************
-* Filename    : editDeleteData
-* Description : This file holds all functions to edit or delete a registered data in browser localstorage
-* Functions   : "deleteRow", "editRow", "saveEditedData"
-* Imported Functions: "clearEntryFields"
+* Filename    : showSnackbar
+* Description : This file holds utility function to display error msg
+* Functions   : "showSnackbar"
 * Author      : Elishree Dey Chand
-* Created     : 2026-05-24
+* Created     : 2026-05-29
 ****************************************************************************************************************************
 */
 
