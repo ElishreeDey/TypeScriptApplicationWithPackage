@@ -10,6 +10,7 @@
 */
 //First import the required functions
 import { clearEntryFields } from './clearEntries.js';
+import { showSnackbar } from './showSnackbar.js';
 //This function will delete the corresponding row of the table when user clicks on delete(X) button.
 export function deleteRow(r) {
     var _a;
@@ -32,7 +33,8 @@ export function deleteRow(r) {
         // End of code for deleting data from local storage JSON array as well. 
     }
     else {
-        alert("Deletion action is cancelled.");
+        //alert("Deletion action is cancelled.");
+        showSnackbar("Deletion action is cancelled.");
     }
 }
 //This function is called when user has clicked edit button in a table row.

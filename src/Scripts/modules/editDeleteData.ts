@@ -11,6 +11,7 @@
 
 //First import the required functions
 import { clearEntryFields } from './clearEntries.js';
+import { showSnackbar } from './showSnackbar.js';
 
 //specify the entry data types
 type entryData = {
@@ -44,7 +45,8 @@ export function deleteRow(r: HTMLElement) {
     // End of code for deleting data from local storage JSON array as well. 
 
   } else {
-    alert("Deletion action is cancelled.");
+    //alert("Deletion action is cancelled.");
+    showSnackbar("Deletion action is cancelled.");
   }
 }
 

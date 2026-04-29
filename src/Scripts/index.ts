@@ -15,6 +15,7 @@ import { createTableFromData } from './modules/createTable.js';
 import { saveEditedData,deleteRow ,editRow} from './modules/editDeleteData.js';
 import { saveData} from './modules/saveData.js';
 import { displayData} from './modules/displayTable.js';
+import { showSnackbar} from './modules/showSnackbar.js';
 
 // Extend the global Window interface to include custom functions
 declare global {
@@ -27,6 +28,7 @@ declare global {
     checkNotIsEmpty: typeof checkNotIsEmpty;
     validateEmail: typeof validateEmail;
     validateFlexiblePhone: typeof validateFlexiblePhone;
+    showSnackbar: typeof showSnackbar;
   }
 }
 
@@ -38,6 +40,7 @@ window.editRow = editRow;
 window.checkNotIsEmpty = checkNotIsEmpty;
 window.validateEmail = validateEmail;
 window.validateFlexiblePhone = validateFlexiblePhone;
+window.showSnackbar = showSnackbar;
 
 // Execute displayData function when the page loads
 window.onload = displayData;

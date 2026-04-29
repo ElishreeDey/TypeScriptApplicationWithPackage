@@ -7,6 +7,7 @@
 import { clearEntryFields } from './clearEntries.js';
 import { checkNotIsEmpty, validateEmail, validateFlexiblePhone } from './validation.js';
 import { createTableFromData } from './createTable.js';
+import { showSnackbar } from './showSnackbar.js';
 // Save Data Function
 export function saveData() {
     // Get values from input fields (INSIDE function)
@@ -63,11 +64,13 @@ export function saveData() {
     }
     // Show error if exists
     if (err) {
-        alert(err);
+        //alert(err);
+        showSnackbar(err);
         return;
     }
     else {
-        alert("Data saved successfully!");
+        //alert("Data saved successfully!");
+        showSnackbar("Data saved successfully!");
     }
     // Add to table
     createTableFromData(user);

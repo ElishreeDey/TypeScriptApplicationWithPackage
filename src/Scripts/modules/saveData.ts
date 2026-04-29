@@ -10,6 +10,7 @@ import { checkNotIsEmpty, validateEmail, validateFlexiblePhone } from './validat
 import { createTableFromData } from './createTable.js';
 
 import type { EntryDataBase } from './type.ts';
+import { showSnackbar } from './showSnackbar.js';
 
 // Save Data Function
 export function saveData() {
@@ -76,10 +77,16 @@ export function saveData() {
 
   // Show error if exists
   if (err) {
-    alert(err);
+    //alert(err);
+
+    showSnackbar(err);
+
     return;
   } else {
-    alert("Data saved successfully!");
+    //alert("Data saved successfully!");
+    
+    showSnackbar("Data saved successfully!");
+
   }
 
   // Add to table
